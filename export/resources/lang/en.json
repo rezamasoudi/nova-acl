@@ -1,0 +1,23 @@
+{
+  "Permissions": "Permissions",
+  "Permission": "Permission",
+  "manage permissions": "manage permissions",
+  "view permissions list": "view permissions list",
+  "view permission": "view permission",
+  "create permission": "create permission",
+  "update permission": "update permission",
+  "delete permission": "delete permission",
+  "Roles": "Roles",
+  "Role": "Role",
+  "manage roles": "manage roles",
+  "view roles list": "view roles list",
+  "view role": "view role",
+  "create role": "create role",
+  "update role": "update role",
+  "delete role": "delete role",
+  "ID": "ID",
+  "Name": "Name",
+  "Guard": "Guard",
+  "Description": "Description",
+  "Access Panel": "Access Panel"
+}
