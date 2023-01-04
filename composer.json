@@ -3,7 +3,8 @@
   "description": "Laravel Nova ACL based on spatie permission",
   "type": "library",
   "require-dev": {
-    "orchestra/testbench": "^7.18"
+    "orchestra/testbench": "^7.18",
+    "laravel/nova": "^4.19"
   },
   "license": "MIT",
   "autoload": {
@@ -17,7 +18,12 @@
       "email": "dev.masoudi@gmail.com"
     }
   ],
-  "require": {},
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://gitlab.com/rezamasoudi/nova.git"
+    }
+  ],
   "extra": {
     "laravel": {
       "providers": [
