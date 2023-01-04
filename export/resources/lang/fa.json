@@ -18,5 +18,6 @@
   "ID": "شناسه",
   "Name": "نام",
   "Guard": "نوع",
-  "Description": "توضیحات"
+  "Description": "توضیحات",
+  "Access Panel": "مجوز دسترسی"
 }
