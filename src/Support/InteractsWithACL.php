@@ -38,18 +38,16 @@ trait InteractsWithACL
 
     public static function hasPermissionsTo(Request $request, $ability)
     {
-
         if (Nova::isLoginPath($request)) {
             return true;
         }
 
-
-        if (isset(static::getPermissionsForAbilities()[$ability])) {
-            return $request->user()->can(static::getPermissionsForAbilities()[$ability]);
+        if (isset(static::getPermissionsForAbilities()['all']) && $request->user()->can(static::getPermissionsForAbilities()['all'])) {
+            return true;
         }
 
-        if (isset(static::getPermissionsForAbilities()['all'])) {
-            return $request->user()->can(static::getPermissionsForAbilities()['all']);
+        if (isset(static::getPermissionsForAbilities()[$ability]) && $request->user()->can(static::getPermissionsForAbilities()[$ability])) {
+            return true;
         }
 
         return false;
@@ -115,7 +113,7 @@ trait InteractsWithACL
     public function authorizeToViewAny(Request $request)
     {
         if (!static::authorizable()) {
-            return;
+            return true;
         }
         return $this->authorizeTo($request, 'viewAny');
     }
