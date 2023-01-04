@@ -1,6 +1,6 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Masoudi\NovaAcl\Middlewares;
 
 use Laravel\Nova\Nova;
 use Spatie\Permission\PermissionRegistrar;
