@@ -3,6 +3,7 @@
 namespace Masoudi\NovaAcl\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Masoudi\NovaAcl\Console\Reload;
 use Masoudi\NovaAcl\Console\Translate;
 
 class PackageServiceProvider extends ServiceProvider
@@ -18,6 +19,7 @@ class PackageServiceProvider extends ServiceProvider
 
             $this->commands([
                 Translate::class,
+                Reload::class,
             ]);
         }
     }
