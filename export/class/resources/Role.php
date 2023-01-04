@@ -12,10 +12,18 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
 use Masoudi\NovaAcl\Support\Contracts\ACLResource;
 use Masoudi\NovaAcl\Support\InteractsWithACL;
+use Spatie\Permission\Models\Role as SpatieRole;
 
 class Role extends Resource implements ACLResource
 {
     use InteractsWithACL;
+
+    /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $model = SpatieRole::class;
 
     /**
      * Get the displayable label of the resource.

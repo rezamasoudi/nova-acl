@@ -12,11 +12,19 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\Resource;
 use Masoudi\NovaAcl\Support\Contracts\ACLResource;
 use Masoudi\NovaAcl\Support\InteractsWithACL;
+use Spatie\Permission\Models\Permission as SpatiePermission;
 use Spatie\Permission\PermissionRegistrar;
 
 class Permission extends Resource implements ACLResource
 {
     use InteractsWithACL;
+
+    /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $model = SpatiePermission::class;
 
 
     /**
