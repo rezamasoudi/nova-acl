@@ -4,7 +4,8 @@
   "type": "library",
   "require-dev": {
     "orchestra/testbench": "^7.18",
-    "laravel/nova": "^4.19"
+    "laravel/nova": "^4.19",
+    "spatie/laravel-permission": "^5"
   },
   "license": "MIT",
   "autoload": {

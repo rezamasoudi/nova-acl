@@ -10,7 +10,8 @@ class PackageServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . "/../../database/migrations" => database_path("migrations")
+                __DIR__ . "/../../export/database/migrations" => database_path("migrations"),
+                __DIR__ . "/../../export/class/resources" => app_path("Nova")
             ], 'nova-acl');
         }
     }
