@@ -13,8 +13,8 @@ return new class extends Migration {
     public function up()
     {
         Schema::table('permissions', function (Blueprint $table) {
-            $table->addColumn('string', 'description')->nullable()->after('name');
-            $table->addColumn('string', 'slug')->nullable()->after('description');
+            $table->string('description')->nullable()->after('name');
+            $table->string('slug')->nullable()->after('description');
         });
     }
 
