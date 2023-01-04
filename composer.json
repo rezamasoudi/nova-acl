@@ -1,0 +1,28 @@
+{
+  "name": "masoudi/nova-acl",
+  "description": "Laravel Nova ACL based on spatie permission",
+  "type": "library",
+  "require-dev": {
+    "orchestra/testbench": "^7.18"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Masoudi\\NovaAcl\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Reza Masoudi",
+      "email": "dev.masoudi@gmail.com"
+    }
+  ],
+  "require": {},
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Masoudi\\NovaAcl\\Providers\\PackageServiceProvider"
+      ]
+    }
+  }
+}
