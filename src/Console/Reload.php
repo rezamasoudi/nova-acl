@@ -39,7 +39,7 @@ class Reload extends Command
         $clear = $this->option('clear');
 
         if ($clear) {
-            Permission::truncate();
+            Permission::query()->delete();
             $this->comment('All permissions cleared');
         }
 
@@ -85,6 +85,20 @@ class Reload extends Command
                 // create permission from abilities
                 foreach ($abilities as $key => $value) {
                     try {
+
+                        $basePermissions = [
+                            'all',
+                            'viewAny',
+                            'view',
+                            'create',
+                            'update',
+                            'delete',
+                        ];
+
+                        if (in_array($key, $basePermissions)) {
+                            Permission::where('name', $value)->update(['slug' => $key]);
+                        }
+
                         Permission::create(['name' => $value, 'description' => trans($value), 'slug' => $key]);
                     } catch (Exception $e) {
                         Log::error($e->getMessage());
