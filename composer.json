@@ -19,12 +19,6 @@
       "email": "dev.masoudi@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://gitlab.com/rezamasoudi/nova.git"
-    }
-  ],
   "extra": {
     "laravel": {
       "providers": [

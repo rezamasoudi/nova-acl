@@ -10,12 +10,12 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Resource;
-use Masoudi\NovaAcl\Support\Contracts\ACLResource;
+use Masoudi\NovaAcl\Support\Contracts\ACL;
 use Masoudi\NovaAcl\Support\InteractsWithACL;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 use Spatie\Permission\PermissionRegistrar;
 
-class Permission extends Resource implements ACLResource
+class Permission extends Resource implements ACL
 {
     use InteractsWithACL;
 
@@ -58,7 +58,7 @@ class Permission extends Resource implements ACLResource
      *
      * @return array
      */
-    public static function getPermissionsForAbilities(): array
+    public static function permissionsForAbilities(): array
     {
         return [
             'all' => 'manage permissions',

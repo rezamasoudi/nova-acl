@@ -42,11 +42,11 @@ trait InteractsWithACL
             return true;
         }
 
-        if (isset(static::getPermissionsForAbilities()['all']) && $request->user()->can(static::getPermissionsForAbilities()['all'])) {
+        if (isset(static::permissionsForAbilities()['all']) && $request->user()->can(static::permissionsForAbilities()['all'])) {
             return true;
         }
 
-        if (isset(static::getPermissionsForAbilities()[$ability]) && $request->user()->can(static::getPermissionsForAbilities()[$ability])) {
+        if (isset(static::permissionsForAbilities()[$ability]) && $request->user()->can(static::permissionsForAbilities()[$ability])) {
             return true;
         }
 

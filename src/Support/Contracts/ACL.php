@@ -2,12 +2,12 @@
 
 namespace Masoudi\NovaAcl\Support\Contracts;
 
-interface ACLResource
+interface ACL
 {
     /**
      * Permissions for abilities
      *
      * @return array
      */
-    public static function getPermissionsForAbilities(): array;
+    public static function permissionsForAbilities(): array;
 }

@@ -10,11 +10,11 @@ use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
-use Masoudi\NovaAcl\Support\Contracts\ACLResource;
+use Masoudi\NovaAcl\Support\Contracts\ACL;
 use Masoudi\NovaAcl\Support\InteractsWithACL;
 use Spatie\Permission\Models\Role as SpatieRole;
 
-class Role extends Resource implements ACLResource
+class Role extends Resource implements ACL
 {
     use InteractsWithACL;
 
@@ -50,7 +50,7 @@ class Role extends Resource implements ACLResource
      *
      * @return array
      */
-    public static function getPermissionsForAbilities(): array
+    public static function permissionsForAbilities(): array
     {
         return [
             'all' => 'manage roles',
