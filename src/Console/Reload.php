@@ -74,7 +74,7 @@ class Reload extends Command
 
             try {
                 // get resource abilities
-                $getPermissionsForAbilitiesMethod = $reflectionClass->getMethod('getPermissionsForAbilities');
+                $getPermissionsForAbilitiesMethod = $reflectionClass->getMethod('permissionsForAbilities');
                 $abilities = $getPermissionsForAbilitiesMethod->invoke(null);
 
                 // abilities should be array
