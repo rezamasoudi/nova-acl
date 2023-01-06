@@ -1,11 +1,8 @@
 # Laravel Nova ACL
 
-ACL for Laravel Nova based on spatie permission
+ACL for authorize nova resources based on spatie permission
 
 ## Install
-
-You need add [spatie permission](https://spatie.be/docs/laravel-permission)
-to project before move to next
 
 install nova-acl via composer
 
@@ -13,8 +10,5 @@ install nova-acl via composer
 composer require masoudi/nova-acl
 ```
 
-Run below artisan command to publish resources
-
-```bash
-php artisan vendor:publish --tag=nova-acl
-```
+## Documentation
+See [Document website](https://rezamasoudi.github.io/nova-acl) for detailed installation and usage instructions.
