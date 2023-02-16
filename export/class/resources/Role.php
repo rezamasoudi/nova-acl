@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -26,13 +27,20 @@ class Role extends Resource implements ACL
     public static $model = SpatieRole::class;
 
     /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
+    public static $title = 'name';
+
+    /**
      * Get the displayable label of the resource.
      *
      * @return string
      */
     public static function label()
     {
-        return trans('Roles');
+        return trans('nova-acl::role.label');
     }
 
     /**
@@ -42,7 +50,7 @@ class Role extends Resource implements ACL
      */
     public static function singularLabel()
     {
-        return trans('Role');
+        return trans('nova-acl::role.singular_label');
     }
 
     /**
@@ -81,19 +89,19 @@ class Role extends Resource implements ACL
         });
 
         return [
-            ID::make(trans('ID'), 'id')->sortable(),
+            ID::make(trans('nova-acl::fields.id'), 'id')->sortable(),
 
-            Text::make(trans('Name'), 'name')
+            Text::make(trans('nova-acl::fields.name'), 'name')
                 ->rules(['required', 'string', 'max:255'])
                 ->creationRules('unique:' . config('permission.table_names.roles'))
                 ->updateRules('unique:' . config('permission.table_names.roles') . ',name,{{resourceId}}'),
 
-            Select::make(trans('Guard'), 'guard_name')
+            Select::make(trans('nova-acl::fields.guard'), 'guard_name')
                 ->options($guardOptions->toArray())
                 ->rules(['required', Rule::in($guardOptions)]),
 
-            BelongsToMany::make(trans('Permissions'), 'permissions', Permission::class)->withSubtitles()->searchable(),
-            MorphToMany::make(trans('Users'), 'users', User::class)->searchable(),
+            BelongsToMany::make(trans('nova-acl::permission.label'), 'permissions', Permission::class)->withSubtitles()->searchable(),
+            MorphToMany::make(trans('nova-acl::fields.users'), 'users', User::class)->searchable(),
         ];
     }
 

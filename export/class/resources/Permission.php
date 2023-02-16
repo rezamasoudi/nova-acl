@@ -50,7 +50,7 @@ class Permission extends Resource implements ACL
      */
     public static function singularLabel()
     {
-        return trans('Permission');
+        return trans('nova-acl::permission.singular_label');
     }
 
     /**
@@ -101,17 +101,14 @@ class Permission extends Resource implements ACL
         $roleResource = Nova::resourceForModel(app(PermissionRegistrar::class)->getRoleClass());
 
         return [
-            ID::make(trans('ID'), 'id')->sortable(),
+            ID::make(trans('nova-acl::fields.id'), 'id')->sortable(),
 
-            Text::make(trans('Name'), 'name')
+            Text::make(trans('nova-acl::fields.name'), 'name')
                 ->rules(['required', 'string', 'max:255'])
                 ->creationRules('unique:' . config('permission.table_names.permissions'))
                 ->updateRules('unique:' . config('permission.table_names.permissions') . ',name,{{resourceId}}'),
 
-            Text::make(trans('Description'), 'description')
-                ->rules(['nullable', 'string', 'max:255']),
-
-            Select::make(trans('Guard'), 'guard_name')
+            Select::make(trans('nova-acl::fields.guard'), 'guard_name')
                 ->options($guardOptions->toArray())
                 ->rules(['required', Rule::in($guardOptions)]),
 
@@ -126,7 +123,7 @@ class Permission extends Resource implements ACL
      */
     public static function label()
     {
-        return trans('Permissions');
+        return trans('nova-acl::permission.label');
     }
 
     /**
