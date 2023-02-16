@@ -16,7 +16,8 @@ class PackageServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__ . "/../../export/database/migrations" => database_path("migrations"),
+                __DIR__ . "/../../export/database/migrations/2023_01_04_100528_add_acl_columns_on_spatie_permissions_table.php"
+                => database_path(sprintf("migrations/%s_add_acl_columns_on_spatie_permissions_table.php", date("Y_m_d_His"))),
                 __DIR__ . "/../../export/class/resources" => app_path("Nova"),
                 __DIR__ . '/../../export/lang' => $this->app->langPath('vendor/nova-acl'),
             ], 'nova-acl');
