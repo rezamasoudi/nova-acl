@@ -17,7 +17,7 @@ class Reload extends Command
      *
      * @var string
      */
-    protected $signature = 'acl:reload {--clear : Clear all permissions from database}';
+    protected $signature = 'acl:reload {--clear : Clear all permissions from database} {--remove-cache : Clear application cache before reload}';
 
     /**
      * The console command description.
@@ -34,7 +34,10 @@ class Reload extends Command
     public function handle()
     {
 
-        $this->call('cache:clear');
+        $enableRemoveCache = $this->option('remove-cache');
+        if ($enableRemoveCache) {
+            $this->call('cache:clear');
+        }
 
         $clear = $this->option('clear');
 
