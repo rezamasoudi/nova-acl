@@ -40,7 +40,7 @@ class Permission extends Resource implements ACL
      * @var array
      */
     public static $search = [
-        'name', 'description',
+        'name',
     ];
 
     /**
@@ -83,7 +83,7 @@ class Permission extends Resource implements ACL
      */
     public function subtitle()
     {
-        return $this->description;
+        return trans($this->name);
     }
 
     /**

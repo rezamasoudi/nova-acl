@@ -99,12 +99,13 @@ class Reload extends Command
                             Permission::where('name', $value)->update(['slug' => $key]);
                         }
 
-                        Permission::create(['name' => $value, 'description' => trans($value), 'slug' => $key]);
+                        Permission::create(['name' => $value, 'slug' => $key]);
                     } catch (Exception $e) {
-                        Log::error($e->getMessage());
+                        Log::error(sprintf("Reload permissions: %s", $e->getMessage()));
                     }
                 }
-            } catch (\Throwable $th) {
+            } catch (\Exception $e) {
+                Log::error(sprintf("Reload permissions: %s", $e->getMessage()));
             }
         }
     }
